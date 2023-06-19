@@ -15,6 +15,13 @@ fetch(bb_json)
       dropdown.appendChild(option);
     });
 
+    // Load default sample
+    const defaultSample = "940";
+    dropdown.value = defaultSample;
+    updateSampleInfo(data.metadata, defaultSample);
+    createBarChart(data.samples, defaultSample);
+    createBubbleChart(data.samples, defaultSample);
+
     // Handle dropdown selection change event
     dropdown.addEventListener("change", function() {
       const selected_sample = this.value;
